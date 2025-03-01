@@ -1,9 +1,4 @@
 shinyUI(fluidPage(
-  div(class = "pull-right", shinyauthr::logoutUI(id = "logout")),
-  
-  # add login panel UI function
-  shinyauthr::loginUI(id = "login"),
-
   
   tags$head(
     tags$style(

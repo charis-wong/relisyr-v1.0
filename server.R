@@ -3,25 +3,8 @@ shinyServer(function(input, output, session) {
     title="Stable release (Version 1.0)", 
     "This version of the ReLiSyR app uses a snapshot of our database from 1 April 2021 to accompany our publication describing our systematic approach in selecting the 3rd arm of MND-SMART. The data presented here are not kept up to date and should not be used to drive future decisions."
   ))
-  #to remove prior to launch-----
-  
-  credentials <- shinyauthr::loginServer(
-    id = "login",
-    data = user_base,
-    user_col = user,
-    pwd_col = password,
-    sodium_hashed = TRUE,
-    log_out = reactive(logout_init())
-  )
-  
-  # Logout to hide
-  logout_init <- shinyauthr::logoutServer(
-    id = "logout",
-    active = reactive(credentials()$user_auth)
-  )
-  
-  
-  observe({if(credentials()$user_auth){
+
+
     #--------
     output$header <- renderUI({
       h4("Disclaimer: This stable release (version 1.0) of the ReLiSyR app uses a snapshot of our database from 1 April 2021 to accompany our publication describing our systematic approach in selecting the 3rd arm of MND-SMART. The data presented here are not kept up to date and should not be used to drive future decisions.")
@@ -388,5 +371,5 @@ The CAMARADES has pioneered in the field of preclinical systematic review, and i
           )
         }
       )
-  }})
+
 })
